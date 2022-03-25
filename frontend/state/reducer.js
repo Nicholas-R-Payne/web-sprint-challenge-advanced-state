@@ -69,17 +69,9 @@ const initialFormState = {
 function form(state = initialFormState, action) {
   switch (action.type) {
     case RESET_FORM:
-      return (state = initialFormState)
-    case INPUT_CHANGE:
-      if(action.payload.newQuestion){
-        return ({...state, newQuestion: action.payload.value})
-      }else if(action.payload.newTrueAnswer){
-        return ({...state, newTrueAnswer: action.payload.value})
-      }else if(action.payload.newFalseAnswer){
-        return ({...state, newFalseAnswer: action.payload.value})
-      }else{
-        return state
-      }
+      return {...initialFormState}
+      case INPUT_CHANGE:
+        return action.payload
     default:
       return state
   }
