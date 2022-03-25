@@ -30,9 +30,9 @@ export const setQuiz = (question) => {
   return { type: SET_QUIZ_INTO_STATE, payload: question }
 }
 
-export const inputChange = (value) => {
-  return { type: INPUT_CHANGE, payload: value }
-}
+export function inputChange(value, inputId) {
+  return ({ type: INPUT_CHANGE, payload: { [inputId]: inputId, value: value }})
+   }
 
 export const resetForm = () => {
   return { type: RESET_FORM }
