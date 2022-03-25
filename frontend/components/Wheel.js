@@ -4,11 +4,16 @@ import * as actionCreators from '../state/action-creators'
 
 export function Wheel(props) {
 
-  const { moveClockwise, wheel } = props
+  const { moveClockwise, moveCounterClockwise, wheel } = props
 
   const handleClockwise = (evt) => {
     const { value } = evt.target
     moveClockwise(value)
+  }
+
+  const handleCounterClockwise = (evt) => {
+    const { value } = evt.target
+    moveCounterClockwise(value)
   }
 
   return (
@@ -22,7 +27,7 @@ export function Wheel(props) {
         <div className={`${wheel === 5 ? "cog active" : "cog"}`} style={{ "--i": 5 }}>{wheel === 5 ? "B" : ""}</div>{/* --i is a custom CSS property, no need to touch that nor the style object */}
       </div>
       <div id="keypad">
-        <button id="counterClockwiseBtn" >Counter clockwise</button>
+        <button id="counterClockwiseBtn" onClick={handleCounterClockwise} >Counter clockwise</button>
         <button id="clockwiseBtn" onClick={handleClockwise}>Clockwise</button>
       </div>
     </div>
