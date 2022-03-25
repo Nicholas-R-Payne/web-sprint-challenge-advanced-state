@@ -2,6 +2,9 @@
 import {
   MOVE_CLOCKWISE,
   MOVE_COUNTERCLOCKWISE,
+  SET_SELECTED_ANSWER,
+  SET_INFO_MESSAGE,
+  SET_QUIZ_INTO_STATE
 } from './action-types';
 
 export const moveClockwise = () => {
@@ -12,11 +15,17 @@ export const moveCounterClockwise = () => {
   return { type: MOVE_COUNTERCLOCKWISE }
 }
 
-export function selectAnswer() { }
+export const selectAnswer = (id) => {
+  return { type: SET_SELECTED_ANSWER, payload: id }
+}
 
-export function setMessage() { }
+export const setMessage = (infoMessage) => {
+  return { type: SET_INFO_MESSAGE, payload: infoMessage }
+}
 
-export function setQuiz() { }
+export const setQuiz = (question) => {
+  return {type: SET_QUIZ_INTO_STATE, payload: question }
+}
 
 export function inputChange() { }
 
